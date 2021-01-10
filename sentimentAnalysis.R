@@ -168,13 +168,15 @@ table(reviews.test$V1, pred.nnet, dnn=c("Obs","Pred"))
 mean(ifelse(reviews.test$V1 != pred.nnet, 1, 0))
 
 #fastText
-train <- read.table("train.ft.txt", header = F, stringsAsFactors = F, fill=T)[, 1]
+#train <- read.table("./datos/train.ft.txt", header = F, stringsAsFactors = F, fill=T)[, 1]
+#ft_normalize(train) 
 
-#ft_normalize(reviews_big$V3) - tengo un problema con el file, además tendría que poner las etiquetas como requiere fastText
-#ft_train(
-#  reviews_big_corpus,
-#  method = "supervised",
-#  control = ft_control()
-#)
+#error in train
+#cntrl <- ft.control(word_vec_size = 10L, learning_rate = 0.1, max_len_ngram = 2L, 
+#                    min_count = 1L, nbuckets = 10000000L, epoch = 5L, nthreads = 20L)
 
+#model <- ft_train(input = "train", method = "supervised", control = cntrl)
 
+#ft_save(model, "reviews")
+#ft_test()
+#ft_predict()
